@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Extract repo name from URL (last part without .git)
-REPO_DIR="firefox-config"
-
-# Change directory to the cloned repo
-cd "$REPO_DIR" || { echo "Failed to enter directory $REPO_DIR"; exit 1; }
-
 # Copy policies.json to Firefox distribution folder (requires sudo)
 sudo cp policies.json /usr/lib/firefox/distribution/
 
