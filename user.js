@@ -233,7 +233,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "");
 
 user_pref("browser.translations.automaticallyPopup", false);
 
-user_pref("browser.engagement.sidebar-button.has-used", false);
+// user_pref("browser.engagement.sidebar-button.has-used", false);
 user_pref("privacy.resistFingerprinting", true);
 user_pref("security.OCSP.require", true);
 user_pref("webgl.disabled", true);
