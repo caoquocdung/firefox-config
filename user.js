@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 138                                                             *
+ * version: 140                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -54,7 +54,6 @@ user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("browser.places.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
-user_pref("network.predictor.enable-prefetch", false);
 
 /** EXPERIMENTAL ***/
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
@@ -90,7 +89,6 @@ user_pref("privacy.history.custom", true);
 user_pref("browser.urlbar.trimHttps", true);
 user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
-user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.quicksuggest.enabled", false);
 user_pref("browser.urlbar.groupLabels.enabled", false);
@@ -184,7 +182,6 @@ user_pref("full-screen-api.warning.timeout", 0);
 /** URL BAR ***/
 user_pref("browser.urlbar.unitConversion.enabled", true);
 user_pref("browser.urlbar.trending.featureGate", false);
-user_pref("dom.text_fragments.create_text_fragment.enabled", true);
 
 /** NEW TAB PAGE ***/
 user_pref("browser.newtabpage.activity-stream.default.sites", "");
@@ -218,7 +215,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 user_pref("identity.fxaccounts.enabled", false);
 
 // PREF: disable the Firefox View tour from popping up
-user_pref("browser.firefox-view.feature-tour", "{screen: , complete: true}");
+user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
 
 // PREF: disable login manager
 user_pref("signon.rememberSignons", false);
@@ -227,16 +224,30 @@ user_pref("signon.rememberSignons", false);
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
 
-// PREF: do not allow embedded tweets, Instagram, Reddit, and Tiktok posts
-user_pref("urlclassifier.trackingSkipURLs", "");
-user_pref("urlclassifier.features.socialtracking.skipURLs", "");
+// PREF: disable captive portal detection
+// [WARNING] Do NOT use for mobile devices!
+user_pref("captivedetect.canonicalURL", ""); 
+user_pref("network.captive-portal-service.enabled", false); 
+user_pref("network.connectivity-service.enabled", false); 
 
-user_pref("browser.translations.automaticallyPopup", false);
+// PREF: hide site shortcut thumbnails on New Tab page
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 
-// user_pref("browser.engagement.sidebar-button.has-used", false);
-user_pref("privacy.resistFingerprinting", true);
-user_pref("security.OCSP.require", true);
-user_pref("webgl.disabled", true);
+// PREF: hide weather on New Tab page
+user_pref("browser.newtabpage.activity-stream.showWeather", false);
+
+// PREF: hide dropdown suggestions when clicking on the address bar
+user_pref("browser.urlbar.suggest.topsites", false);
+
+// PREF: ask where to save every file
+user_pref("browser.download.useDownloadDir", false);
+
+// PREF: disable all DRM content
+user_pref("media.eme.enabled", false);
+
+// PREF: hide the UI setting; this also disables the DRM prompt (optional)
+user_pref("browser.eme.ui.enabled", false);
+
 
 
 /****************************************************************************
@@ -245,6 +256,7 @@ user_pref("webgl.disabled", true);
 // visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
 // Enter your scrolling overrides below this line:
 
+user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
 user_pref("general.smoothScroll", true); // DEFAULT
 user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
@@ -255,7 +267,7 @@ user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", "2");
 user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 250);
 user_pref("general.smoothScroll.currentVelocityWeighting", "1");
 user_pref("general.smoothScroll.stopDecelerationWeighting", "1");
-user_pref("mousewheel.default.delta_multiplier_y", 300);
+user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this number to your liking
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
